@@ -1,0 +1,11 @@
+[package]
+name = "clik"
+version = "0.1.0"
+edition = "2021"
+authors = ["Santhosh Chinnasamy"]
+readme = "README.md"
+license = "MIT"
+keywords = ["clik", "shorten-urls"]
+categories = ["command-line-utilities"]
+
+[dependencies]
