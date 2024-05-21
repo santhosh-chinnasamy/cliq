@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use std::env;
-use std::process::Command;
+use std::process::{exit, Command};
 
 fn main() {
     let links = HashMap::from([
@@ -9,17 +9,25 @@ fn main() {
         ("lab", "https://gitlab.com"),
     ]);
 
-    let alias = env::args().nth(1).expect("no alias provided");
+    let alias = env::args().nth(1).unwrap_or_else(|| {
+        println!("no alias provided");
+        exit(1);
+    });
 
     let link = match links.get(alias.as_str()) {
         Some(link) => link,
-        None => panic!("alias not found"),
+        None => {
+            println!("alias not found");
+            exit(1);
+        }
     };
 
-    println!("Opening {}", &link);
+    let program = "open";
 
-    Command::new("open")
-        .arg(link)
-        .spawn()
-        .expect("open command failed to execute");
+    Command::new(program).arg(link).spawn().unwrap_or_else(|_| {
+        println!("{} command not found", program);
+        exit(127);
+    });
+
+    println!("Opening {}", link);
 }
