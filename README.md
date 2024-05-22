@@ -2,6 +2,13 @@
 
 open frequently accessed memorable shorten urls from cli
 
+## Build and Install
+
+```bash
+cargo build
+cargo install --path .
+```
+
 ## Requirements
 
 Create `clik.toml` file under `$HOME/.config/clik/` folder and add the following contents
