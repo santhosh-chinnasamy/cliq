@@ -9,3 +9,4 @@ keywords = ["clik", "shorten-urls"]
 categories = ["command-line-utilities"]
 
 [dependencies]
+toml = "0.8.13"
