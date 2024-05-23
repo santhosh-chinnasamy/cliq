@@ -1,5 +1,6 @@
 [package]
 name = "clik"
+description = "open frequently accessed memorable shorten urls from cli"
 version = "0.1.0"
 edition = "2021"
 authors = ["Santhosh Chinnasamy"]
