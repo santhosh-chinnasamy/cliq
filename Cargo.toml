@@ -9,6 +9,7 @@ keywords = ["clik", "shorten-urls"]
 categories = ["command-line-utilities"]
 homepage = "https://github.com/santhosh-chinnasamy/clik.git"
 repository = "https://github.com/santhosh-chinnasamy/clik.git"
+exclude = [".vscode"]
 
 [dependencies]
 toml = "0.8.13"
