@@ -27,3 +27,11 @@ clik google # opens google
 clik hub # opens github
 clik lab # opens gitlab
 ```
+
+## Supports
+
+- [x] Mac
+- [ ] Linux
+- [ ] Windows
+
+
