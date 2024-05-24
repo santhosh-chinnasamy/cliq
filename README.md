@@ -1,4 +1,4 @@
-# CLIK
+# CLIQ
 
 open frequently accessed memorable shorten urls from cli
 
@@ -11,7 +11,7 @@ cargo install --path .
 
 ## Requirements
 
-Create `clik.toml` file under `$HOME/.config/clik/` folder and add the following contents
+Create `cliq.toml` file under `$HOME/.config/cliq/` folder and add the following contents
 
 ```toml
 [links]
@@ -23,9 +23,9 @@ lab = "https://gitlab.com"
 ## Usage
 
 ```bash
-clik google # opens google
-clik hub # opens github
-clik lab # opens gitlab
+cliq google # opens google
+cliq hub # opens github
+cliq lab # opens gitlab
 ```
 
 ## Supports

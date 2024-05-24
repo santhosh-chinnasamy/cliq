@@ -11,18 +11,18 @@ fn main() {
         }
     };
 
-    let file_path = path::Path::new(&home_dir).join(".config/clik/clik.toml");
+    let file_path = path::Path::new(&home_dir).join(".config/cliq/cliq.toml");
 
-    let clik_config = match fs::read_to_string(file_path) {
+    let cliq_config = match fs::read_to_string(file_path) {
         Ok(file) => file,
         Err(e) => {
-            eprintln!("Error reading clik.toml. \nCreate clik.toml file under $HOME/.config/clik folder. {}", e);
+            eprintln!("Error reading cliq.toml. \nCreate cliq.toml file under $HOME/.config/cliq folder. {}", e);
             exit(1);
         }
     };
 
-    let clik_data: Table = clik_config.parse().unwrap();
-    let links = &clik_data["links"].as_table().unwrap().clone();
+    let cliq_data: Table = cliq_config.parse().unwrap();
+    let links = &cliq_data["links"].as_table().unwrap().clone();
 
     let alias = env::args().nth(1).unwrap_or_else(|| {
         eprintln!("no alias provided");

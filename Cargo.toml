@@ -1,15 +1,15 @@
 [package]
-name = "clik"
+name = "cliq"
 description = "open frequently accessed memorable shorten urls from cli"
 version = "0.1.0"
 edition = "2021"
 authors = ["Santhosh Chinnasamy"]
 readme = "README.md"
 license = "MIT"
-keywords = ["clik", "shorten-urls"]
+keywords = ["cliq", "shorten-urls"]
 categories = ["command-line-utilities"]
-homepage = "https://github.com/santhosh-chinnasamy/clik.git"
-repository = "https://github.com/santhosh-chinnasamy/clik.git"
+homepage = "https://github.com/santhosh-chinnasamy/cliq.git"
+repository = "https://github.com/santhosh-chinnasamy/cliq.git"
 exclude = [".vscode"]
 
 [dependencies]
