@@ -2,11 +2,12 @@
 
 open frequently accessed memorable shorten urls from cli
 
-## Build and Install
+## Installation
+
+Download latest version from [release](https://github.com/santhosh-chinnasamy/cliq/releases) page and run below command
 
 ```bash
-cargo build
-cargo install --path .
+tar -xvf cliq-<VERSION>-<PLATFORM>.tar.gz -C /usr/local/bin
 ```
 
 ## Requirements
@@ -28,10 +29,15 @@ cliq hub # opens github
 cliq lab # opens gitlab
 ```
 
+## Build and Install
+
+```bash
+cargo build
+cargo install --path .
+```
+
 ## Supports
 
 - [x] Mac
 - [ ] Linux
 - [ ] Windows
-
-
