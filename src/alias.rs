@@ -62,9 +62,14 @@ fn read_config() -> Table {
     return cliq_data;
 }
 
-pub fn link(alias: String) -> String {
+pub fn links() -> Table {
     let cliq_data = read_config();
     let links = cliq_data["links"].as_table().unwrap().clone();
+    return links;
+}
+
+pub fn link(alias: String) -> String {
+    let links = links();
     let link = match links.get(alias.as_str()) {
         Some(link) => link.as_str().unwrap(),
         None => {
