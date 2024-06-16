@@ -39,5 +39,5 @@ cargo install --path .
 ## Supports
 
 - [x] Mac
-- [ ] Linux
+- [x] Linux
 - [ ] Windows
