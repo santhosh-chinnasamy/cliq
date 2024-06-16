@@ -1,5 +1,6 @@
 use clap::{Parser, Subcommand};
 mod alias;
+mod heimdall;
 
 #[derive(Parser)]
 #[command(name = "cliq", version, about, author, long_about = None)]
@@ -29,7 +30,7 @@ fn main() {
         Commands::Options(args) => {
             let input = args.join(" ");
             let url = alias::link(input);
-            alias::open(url);
+            heimdall::open(url);
         }
     }
 }

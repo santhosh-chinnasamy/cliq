@@ -1,12 +1,7 @@
-use std::{
-    fs,
-    process::{exit, Command},
-};
+use std::{fs, process::exit};
 
 use toml::Table;
 
-const MACOS: &str = "open";
-const LINUX: &str = "xdg-open";
 const CONFIG_FOLDER: &'static str = ".config/cliq";
 const CONFIG_FILE: &'static str = "cliq.toml";
 const DEFAULT_CONFIG: &'static str = "
@@ -15,16 +10,6 @@ google = \"https://google.com\"
 hub = \"https://github.com\"
 lab = \"https://gitlab.com\"
 ";
-
-fn program() -> String {
-    let os: &str = std::env::consts::OS;
-    let _program: &str = match os {
-        "macos" => MACOS,
-        _ => LINUX,
-    };
-
-    return _program.to_string();
-}
 
 fn config_file() -> String {
     let home_dir = dirs::home_dir().unwrap().to_str().unwrap().to_string();
@@ -79,19 +64,4 @@ pub fn link(alias: String) -> String {
     };
 
     return link.to_string();
-}
-
-pub fn open(url: String) {
-    let binding = program();
-    let command_name = binding.as_str();
-
-    println!("Opening {}", url);
-
-    Command::new(command_name)
-        .arg(url)
-        .spawn()
-        .unwrap_or_else(|_| {
-            eprintln!("{} command not found", command_name);
-            exit(127);
-        });
 }
