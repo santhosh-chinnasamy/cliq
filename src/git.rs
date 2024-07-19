@@ -15,20 +15,6 @@ fn check_git() {
         });
 }
 
-/* fn check_gitt() {
-    match Command::new("git").spawn() {
-        Ok(_) => {}
-        Err(e) => {
-            if let std::io::ErrorKind::NotFound = e.kind() {
-                println!("`git` command not found");
-            } else {
-                println!("Some strange error occurred :(");
-            }
-            exit(127)
-        }
-    }
-} */
-
 fn check_git_init_folder() {
     Command::new("git")
         .arg("rev-parse")
@@ -48,9 +34,29 @@ fn open_remote_url() {
         .stdout(Stdio::piped())
         .output()
         .unwrap();
-    let url = str::from_utf8(&result.stdout[..]).unwrap();
 
-    heimdall::open(url.to_string());
+    let remote_url = str::from_utf8(&result.stdout[..]).unwrap();
+    let is_https = remote_url.starts_with("https");
+    let is_ssh = remote_url.starts_with("git@");
+
+    if is_https {
+        heimdall::open(remote_url.to_string());
+        return;
+    }
+
+    if is_ssh {
+        heimdall::open(convert_ssh_to_https(remote_url));
+        return;
+    }
+
+    eprintln!("Invalid git remote");
+    exit(127);
+}
+
+fn convert_ssh_to_https(url: &str) -> String {
+    let mut url = url.replace(":", "/");
+    url = url.replace("git@", "https://");
+    return url.trim().to_string();
 }
 
 pub fn main() {
