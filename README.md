@@ -27,6 +27,9 @@ lab = "https://gitlab.com"
 cliq google # opens google
 cliq hub # opens github
 cliq lab # opens gitlab
+
+ # opens git remote repo if .git exists. no need to add it in cliq.toml
+cliq git
 ```
 
 ## Build and Install
