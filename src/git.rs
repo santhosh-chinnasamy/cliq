@@ -8,7 +8,9 @@ use crate::heimdall;
 fn check_git() {
     Command::new("git")
         .arg("--version")
-        .spawn()
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status()
         .unwrap_or_else(|_| {
             eprintln!("Git not installed");
             exit(127);
@@ -16,14 +18,18 @@ fn check_git() {
 }
 
 fn check_git_init_folder() {
-    Command::new("git")
+    let status = Command::new("git")
         .arg("rev-parse")
         .arg("--git-dir")
-        .spawn()
-        .unwrap_or_else(|_| {
-            eprintln!("git not initialized. run `git init` to initialize git repository");
-            exit(127);
-        });
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status()
+        .unwrap();
+
+    if !status.success() {
+        eprintln!("git not initialized.\nrun `git init` to initialize git");
+        exit(0);
+    }
 }
 
 fn open_remote_url() {

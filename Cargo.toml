@@ -1,12 +1,12 @@
 [package]
 name = "cliq"
 description = "open frequently accessed memorable shorten urls from cli"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 authors = ["Santhosh Chinnasamy"]
 readme = "README.md"
 license = "MIT"
-keywords = ["cliq", "shorten-urls"]
+keywords = ["cliq", "shorten-urls", "cli", "git-open"]
 categories = ["command-line-utilities"]
 homepage = "https://github.com/santhosh-chinnasamy/cliq.git"
 repository = "https://github.com/santhosh-chinnasamy/cliq.git"
