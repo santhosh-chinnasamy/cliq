@@ -42,10 +42,10 @@ fn open_remote_url() {
         .unwrap();
 
     let remote_url = str::from_utf8(&result.stdout[..]).unwrap();
-    let is_https = remote_url.starts_with("https");
+    let is_http = remote_url.starts_with("http");
     let is_ssh = remote_url.starts_with("git@");
 
-    if is_https {
+    if is_http {
         heimdall::open(remote_url.to_string());
         return;
     }
