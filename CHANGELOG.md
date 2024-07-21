@@ -1,3 +1,9 @@
+## [0.3.1] - 2024-07-20
+
+### Under the hood
+
+- run shell commands quietly
+
 ## [0.3.0] - 2024-07-19
 
 ### Added
