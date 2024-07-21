@@ -3,7 +3,7 @@ use std::{
     str,
 };
 
-use crate::heimdall;
+use crate::browser;
 
 fn check_git() {
     Command::new("git")
@@ -46,12 +46,12 @@ fn open_remote_url() {
     let is_ssh = remote_url.starts_with("git@");
 
     if is_http {
-        heimdall::open(remote_url.to_string());
+        browser::open(remote_url.to_string());
         return;
     }
 
     if is_ssh {
-        heimdall::open(convert_ssh_to_https(remote_url));
+        browser::open(convert_ssh_to_https(remote_url));
         return;
     }
 

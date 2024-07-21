@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 mod alias;
+mod browser;
 mod git;
-mod heimdall;
 
 #[derive(Parser)]
 #[command(name = "cliq", version, about, author, long_about = None)]
@@ -34,7 +34,7 @@ fn main() {
         Commands::Options(args) => {
             let input = args.join(" ");
             let url = alias::link(input);
-            heimdall::open(url);
+            browser::open(url);
         }
     }
 }
