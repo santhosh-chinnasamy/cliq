@@ -1,4 +1,4 @@
-use std::process::{exit, Command};
+use std::process::{exit, Command, Stdio};
 
 const MACOS: &str = "open";
 const LINUX: &str = "xdg-open";
@@ -17,10 +17,20 @@ pub fn open(url: String) {
     let binding = program();
     let command = binding.as_str();
 
-    println!("Opening {}", url);
+    let status = Command::new(command)
+        .arg(&url)
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status()
+        .unwrap_or_else(|_| {
+            eprintln!("{} command not found", command);
+            exit(127);
+        });
 
-    Command::new(command).arg(url).spawn().unwrap_or_else(|_| {
-        eprintln!("{} command not found", command);
-        exit(127);
-    });
+    if !status.success() {
+        eprintln!("unable to open {}", url);
+        exit(0);
+    }
+
+    println!("Opening {}", url);
 }
