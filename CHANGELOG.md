@@ -1,3 +1,10 @@
+## [0.3.2] - 2024-07-23
+
+### Under the hood
+
+- put linux browser logs to /dev/null
+- release for linux environments
+
 ## [0.3.1] - 2024-07-20
 
 ### Under the hood

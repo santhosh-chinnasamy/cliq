@@ -1,7 +1,7 @@
 [package]
 name = "cliq"
 description = "open frequently accessed memorable shorten urls from cli"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2021"
 authors = ["Santhosh Chinnasamy"]
 readme = "README.md"
