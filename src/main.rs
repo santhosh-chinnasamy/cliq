@@ -5,13 +5,13 @@ mod git;
 
 #[derive(Parser)]
 #[command(name = "cliq", version, about, author, long_about = None)]
-struct Cliq {
+struct CliqArgs {
     #[command(subcommand)]
-    command: Commands,
+    command: Cliq,
 }
 
 #[derive(Subcommand, Debug)]
-enum Commands {
+enum Cliq {
     #[command(about = "get all aliases from cliq.toml", aliases = ["ls"])]
     List,
     #[command(about = "open remote git repository", aliases = ["g"])]
@@ -23,15 +23,15 @@ enum Commands {
 }
 
 fn main() {
-    let cliq = Cliq::parse();
+    let cliq = CliqArgs::parse();
 
     match &cliq.command {
-        Commands::List => {
+        Cliq::List => {
             let parsed_toml = alias::links();
             print!("{}", parsed_toml);
         }
-        Commands::Git => git::main(),
-        Commands::Options(args) => {
+        Cliq::Git => git::main(),
+        Cliq::Options(args) => {
             let input = args.join(" ");
             let url = alias::link(input);
             browser::open(url);
