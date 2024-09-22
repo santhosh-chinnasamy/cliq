@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 mod alias;
 mod browser;
-mod git;
+mod commands;
 
 #[derive(Parser)]
 #[command(name = "cliq", version, about, author, long_about = None)]
@@ -15,7 +15,7 @@ enum Cliq {
     #[command(about = "get all aliases from cliq.toml", aliases = ["ls"])]
     List,
     #[command(about = "open remote git repository", aliases = ["g"])]
-    Git,
+    Git(commands::git::GitArgs),
     /// to handle aliases in toml file
     #[command(external_subcommand)]
     #[allow(dead_code)]
@@ -30,7 +30,7 @@ fn main() {
             let parsed_toml = alias::links();
             print!("{}", parsed_toml);
         }
-        Cliq::Git => git::main(),
+        Cliq::Git(args) => commands::git::main(args),
         Cliq::Options(args) => {
             let input = args.join(" ");
             let url = alias::link(input);
