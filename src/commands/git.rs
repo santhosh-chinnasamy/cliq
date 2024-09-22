@@ -164,5 +164,5 @@ pub fn main(args: &GitArgs) {
     }
 
     let fallback = get_branch_or_tag_or_commit();
-    open_remote_url(&fallback);
+    open_remote_url(&fallback.trim());
 }
