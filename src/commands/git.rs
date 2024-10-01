@@ -9,17 +9,9 @@ use crate::browser;
 
 #[derive(Args, Debug)]
 pub struct GitArgs {
-    /// opens given branch in browser
+    /// opens given remote branch
     #[arg(short, long)]
     branch: Option<String>,
-
-    /// opens given commit in browser
-    #[arg(short, long)]
-    commit: Option<String>,
-
-    /// opens given tag in browser
-    #[arg(short, long)]
-    tag: Option<String>,
 }
 
 fn check_git() {
@@ -151,18 +143,6 @@ pub fn main(args: &GitArgs) {
         return;
     }
 
-    if args.tag.is_some() {
-        let tag = args.tag.as_ref().unwrap();
-        open_remote_url(tag);
-        return;
-    }
-
-    if args.commit.is_some() {
-        let commit = args.commit.as_ref().unwrap();
-        open_remote_url(commit);
-        return;
-    }
-
-    let fallback = get_branch_or_tag_or_commit();
-    open_remote_url(&fallback.trim());
+    let fallback: String = get_branch_or_tag_or_commit();
+    open_remote_url(fallback.trim());
 }
