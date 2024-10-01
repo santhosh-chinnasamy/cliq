@@ -1,3 +1,13 @@
+## [0.4.0] - 2024-10-01
+
+### Added
+
+- add `--branch` flag to `git` command
+
+### Under the hood
+
+- moved `git` command to `git` module
+
 ## [0.3.2] - 2024-07-23
 
 ### Under the hood
