@@ -46,3 +46,7 @@ cargo install --path .
 - [x] Mac
 - [x] Linux
 - [ ] Windows
+
+## Contribution
+
+Please read the [contributing guidelines](CONTRIBUTING.md) to setup your development machine and proceed.
