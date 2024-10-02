@@ -6,6 +6,8 @@ open frequently accessed memorable links from cli
 
 ## Installation
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/santhosh-chinnasamy/cliq?label=Latest%20Version)](https://github.com/santhosh-chinnasamy/cliq/releases/latest)
+
 Download latest version from [release](https://github.com/santhosh-chinnasamy/cliq/releases) page and run below command
 
 ```bash
