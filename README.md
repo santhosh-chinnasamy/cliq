@@ -1,6 +1,8 @@
 # CLIQ
 
-open frequently accessed memorable shorten urls from cli
+open frequently accessed memorable links from cli
+
+> Cliq is like your bookmark manager from terminal. You can add your frequently accessed urls in `cliq.toml` file and open them from terminal. It also supports opening git remote repo if `.git` exists in the current directory.
 
 ## Installation
 
@@ -44,3 +46,7 @@ cargo install --path .
 - [x] Mac
 - [x] Linux
 - [ ] Windows
+
+## Contribution
+
+Please read the [contributing guidelines](CONTRIBUTING.md) to setup your development machine and proceed.

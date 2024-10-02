@@ -1,19 +1,19 @@
 ## [0.4.1] - 2024-10-02
 
-### Added
+### Features
 
-- `--tag` flag to `git` command
-- `--commit` flag to `git` command
+- add `--tag` flag to `git` command
+- add `--commit` flag to `git` command
 
 ## [0.4.0] - 2024-10-01
 
-### Added
+### Features
 
 - `--branch` flag to `git` command
 
 ### Under the hood
 
-- moved `git` command to `git` module
+- move `git` command to `commands` module
 
 ## [0.3.2] - 2024-07-23
 
@@ -30,13 +30,13 @@
 
 ## [0.3.0] - 2024-07-19
 
-### Added
+### Features
 
 - add git remote url support
 
 ## [0.2.0] - 2024-06-16
 
-### Added
+### Features
 
 - support for linux
 - `list` command to get all aliases
@@ -44,7 +44,7 @@
 
 ## [0.1.0] - 2024-05-24
 
-### Added
+### Features
 
 - support to read links from toml file
 - support for mac os
