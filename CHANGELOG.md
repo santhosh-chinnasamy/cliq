@@ -9,7 +9,7 @@
 
 ### Features
 
-- add `--branch` flag to `git` command
+- `--branch` flag to `git` command
 
 ### Under the hood
 

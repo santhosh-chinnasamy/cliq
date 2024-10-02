@@ -12,6 +12,14 @@ pub struct GitArgs {
     /// opens given remote branch
     #[arg(short, long)]
     branch: Option<String>,
+
+    /// opens given remote commit
+    #[arg(short, long)]
+    commit: Option<String>,
+
+    /// opens given remote tag
+    #[arg(short, long)]
+    tag: Option<String>,
 }
 
 fn check_git() {
@@ -140,6 +148,18 @@ pub fn main(args: &GitArgs) {
     if args.branch.is_some() {
         let branch = args.branch.as_ref().unwrap();
         open_remote_url(branch);
+        return;
+    }
+
+    if args.tag.is_some() {
+        let tag = args.tag.as_ref().unwrap();
+        open_remote_url(tag);
+        return;
+    }
+
+    if args.commit.is_some() {
+        let commit = args.commit.as_ref().unwrap();
+        open_remote_url(commit);
         return;
     }
 
