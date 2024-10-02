@@ -1,8 +1,15 @@
+## [0.4.1] - 2024-10-02
+
+### Added
+
+- `--tag` flag to `git` command
+- `--commit` flag to `git` command
+
 ## [0.4.0] - 2024-10-01
 
 ### Added
 
-- add `--branch` flag to `git` command
+- `--branch` flag to `git` command
 
 ### Under the hood
 

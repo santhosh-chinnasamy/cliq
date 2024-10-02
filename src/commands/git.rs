@@ -13,6 +13,10 @@ pub struct GitArgs {
     #[arg(short, long)]
     branch: Option<String>,
 
+    /// opens given remote commit
+    #[arg(short, long)]
+    commit: Option<String>,
+
     /// opens given remote tag
     #[arg(short, long)]
     tag: Option<String>,
@@ -150,6 +154,12 @@ pub fn main(args: &GitArgs) {
     if args.tag.is_some() {
         let tag = args.tag.as_ref().unwrap();
         open_remote_url(tag);
+        return;
+    }
+
+    if args.commit.is_some() {
+        let commit = args.commit.as_ref().unwrap();
+        open_remote_url(commit);
         return;
     }
 
