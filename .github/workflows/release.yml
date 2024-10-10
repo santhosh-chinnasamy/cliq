@@ -61,5 +61,6 @@ jobs:
           #     - $tag    - Tag of this release.
           # When multiple binary names are specified, default archive name or $bin variable cannot be used.
           archive: $bin-$tag-$target
+          checksum: sha256
           # (required) GitHub token for uploading assets to GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
