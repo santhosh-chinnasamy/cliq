@@ -10,7 +10,7 @@ fn program() -> String {
         _ => LINUX,
     };
 
-    return _program.to_string();
+    _program.to_string()
 }
 
 pub fn open(url: String) {

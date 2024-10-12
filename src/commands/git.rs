@@ -95,7 +95,7 @@ fn get_current_branch() -> String {
         .unwrap();
 
     let branch = str::from_utf8(&result.stdout[..]).unwrap().to_string();
-    return branch;
+    branch
 }
 
 fn get_current_tag_name() -> String {
@@ -108,7 +108,7 @@ fn get_current_tag_name() -> String {
         .unwrap();
 
     let tag = str::from_utf8(&result.stdout[..]).unwrap().to_string();
-    return tag;
+    tag
 }
 
 fn get_current_commit_sha() -> String {
@@ -121,7 +121,7 @@ fn get_current_commit_sha() -> String {
         .unwrap();
 
     let commit_sha = str::from_utf8(&result.stdout[..]).unwrap().to_string();
-    return commit_sha;
+    commit_sha
 }
 
 fn get_branch_or_tag_or_commit() -> String {
@@ -130,7 +130,7 @@ fn get_branch_or_tag_or_commit() -> String {
     let commit = get_current_commit_sha();
 
     if !branch.is_empty() {
-        return branch;
+        branch
     } else if !tag.is_empty() {
         return tag;
     } else if !commit.is_empty() {

@@ -2,9 +2,9 @@ use std::{fs, process::exit};
 
 use toml::Table;
 
-const CONFIG_FOLDER: &'static str = ".config/cliq";
-const CONFIG_FILE: &'static str = "cliq.toml";
-const DEFAULT_CONFIG: &'static str = "
+const CONFIG_FOLDER: &str = ".config/cliq";
+const CONFIG_FILE: &str = "cliq.toml";
+const DEFAULT_CONFIG: &str = "
 [links]
 google = \"https://google.com\"
 hub = \"https://github.com\"
@@ -14,7 +14,7 @@ lab = \"https://gitlab.com\"
 fn config_file() -> String {
     let home_dir = dirs::home_dir().unwrap().to_str().unwrap().to_string();
     let cliq_config = format!("{}/{}/{}", home_dir, CONFIG_FOLDER, CONFIG_FILE);
-    return cliq_config.to_string();
+    cliq_config.to_string()
 }
 
 fn create_config() {
@@ -35,7 +35,7 @@ fn read_config() -> Table {
         create_config();
     }
 
-    let cliq_config = match fs::read_to_string(&config_file()) {
+    let cliq_config = match fs::read_to_string(config_file()) {
         Ok(file) => file,
         Err(e) => {
             eprintln!("Error reading cliq.toml. \nCreate cliq.toml file under $HOME/.config/cliq folder. {}", e);
@@ -44,13 +44,13 @@ fn read_config() -> Table {
     };
 
     let cliq_data: Table = cliq_config.parse().unwrap();
-    return cliq_data;
+    cliq_data
 }
 
 pub fn links() -> Table {
     let cliq_data = read_config();
     let links = cliq_data["links"].as_table().unwrap().clone();
-    return links;
+    links
 }
 
 pub fn link(alias: String) -> String {
@@ -63,5 +63,5 @@ pub fn link(alias: String) -> String {
         }
     };
 
-    return link.to_string();
+    link.to_string()
 }
