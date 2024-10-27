@@ -24,9 +24,9 @@ jobs:
           cargo install cargo-deb
           cargo deb
           ls -la target/debian
-          mv target/debian/cliq_0.4.1-1_arm64.deb target/debian/cliq-${RELEASE_VERSION}-arm64.deb
+          mv target/debian/cliq_0.4.1-1_amd64.deb target/debian/cliq-${RELEASE_VERSION}-amd64.deb
       - name: Upload deb
         uses: actions/upload-artifact@v4
         with:
-          name: cliq-arm64v${RELEASE_VERSION}.deb
+          name: cliq-amd64v${RELEASE_VERSION}.deb
           path: target/debian/*.deb
