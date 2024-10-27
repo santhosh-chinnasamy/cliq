@@ -1,0 +1,32 @@
+name: Debian
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - v[0-9]+.*
+
+jobs:
+  aarch64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set version
+        run: echo "RELEASE_VERSION=${GITHUB_REF:10}" >> $GITHUB_ENV
+      - name: build-debian
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          targets: aarch64-unknown-linux-gnu
+      - run: |
+          cargo install cargo-deb
+          cargo deb
+          ls -la target/debian
+          mv target/debian/cliq_0.4.1-1_arm64.deb target/debian/cliq-${RELEASE_VERSION}-arm64.deb
+      - name: Upload deb
+        uses: actions/upload-artifact@v2
+        with:
+          name: cliq-arm64v${RELEASE_VERSION}.deb
+          path: target/debian/*.deb
