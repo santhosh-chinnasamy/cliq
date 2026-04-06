@@ -11,8 +11,8 @@ open frequently accessed memorable links from cli
 ### Homebrew
 
 ```bash
-brew tap santhosh-chinnasamy/cliq
-brew install cliq
+brew tap santhosh-chinnasamy/tap
+brew install santhosh-chinnasamy/tap/cliq
 ```
 
 Download latest version from [release](https://github.com/santhosh-chinnasamy/cliq/releases) page and run below command
